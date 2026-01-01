@@ -27,7 +27,6 @@ let myObj = {
     name: "hitesh",    //object  (type of object is object)
     age: 22,
 }
-
 const myFunction = function(){
     console.log("Hello world");   //function store in variable  (type of function is function)
 }

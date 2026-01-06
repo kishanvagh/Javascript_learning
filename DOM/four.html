@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <ul class="lang">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    //add list
+    function addListItem(language){
+        const li=document.createElement('li')
+        li.innerText=`${language}`
+        document.querySelector('.lang').appendChild(li)
+    }
+    addListItem("python")
+    addListItem("cpp")
+
+
+    function optimalWayForAdding(language){
+        const li=document.createElement('li')
+        const textNode=document.createTextNode(language)   //we can't create text node by using document.createElement();
+        li.appendChild(textNode)
+        document.querySelector('.lang').appendChild(li)
+    }
+    optimalWayForAdding("java")
+
+
+    //edit
+    const li=document.querySelector("li:first-child");
+    // console.log(li)
+    li.textContent="typeScript"
+
+    //edit with replaceWith()
+    const secLi=document.querySelector("li:nth-child(2)");
+    console.log(secLi)
+    const newLi=document.createElement("li")
+    const textNode=document.createTextNode("pandas")   //we can't create text node by using document.createElement();
+    newLi.appendChild(textNode)
+    secLi.replaceWith(newLi);
+
+    //edit with outerHTML
+    const last = document.querySelector("li:last-child")
+    last.outerHTML = '<li>c</li>'
+
+    //remove
+    const last1=document.querySelector("li:last-child")
+    last1.remove()
+    
+
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Mastery Task</title>
+  <style>
+    .done { text-decoration: line-through; color: gray; }
+    .highlight { background: yellow; }
+  </style>
+</head>
+<body>
+
+  <h1 id="title">Todo App</h1>
+
+  <input type="text" id="todo-input" placeholder="Enter task">
+  <button id="add-btn">Add</button>
+
+  <p class="info">Total Tasks: <span id="count">0</span></p>
+
+  <ul id="todo-list">
+    <li class="todo">Learn DOM</li>
+    <li class="todo">Practice JS</li>   
+  </ul>
+
+  <button id="highlight-btn">Highlight Odd Tasks</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

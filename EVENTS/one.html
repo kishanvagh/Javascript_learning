@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <ul id="outer">
+        <li id="listItem1">
+            <p id="inner1"> this is the para 1</p>
+        </li>
+        <li id="listItem2">
+             <p id="inner2">this is the para 2</p>
+        </li>
+        <li id="listItem3">
+             <p id="inner3">this is the para 3</p>
+        </li>
+        <li id="listItem4">
+             <p id="innre4">this is the para4 </p>
+        </li>
+    </ul>
+</body>
+<script>
+//    document.getElementById("inner1").onclick = function(){     //first appraoch to handle the event
+//        alert("para 1 cliked")
+//    }
+//    document.getElementById("inner2").addEventListener('click',(e)=>{
+//        console.log(e)
+//        console.log(e.type)  
+//        console.log(e.target)   
+//        console.log(e.srcElement)
+//        console.log(e.toElement)
+//        alert("para 2 cliked")
+//    })
+//    document.getElementById("outer").addEventListener("click",(e)=>{
+//        console.log("clicked at outer")    //parent element
+//    },false)
+
+//    document.getElementById("inner3").addEventListener("click",(e)=>{
+//      console.log("clicked at para3")    //child element of outer
+//    },false)    //by default this is the false,if we clicked at para3 then first output will be child and then parent its like bubling
+
+// document.getElementById("outer").addEventListener("click",(e)=>{
+//        console.log("clicked at outer")    //parent element
+//    },true)
+
+//    document.getElementById("inner3").addEventListener("click",(e)=>{
+//      console.log("clicked at para3")    //child element of outer
+//    },true)     //now this is the true,if we clicked at para three it like top to bottom first parent output then child outputs will be printed
+
+//    document.getElementById("outer").addEventListener("click",(e)=>{
+//        console.log(typeof e.target)
+//        console.log(e.target.tagName)
+//        console.log(e.target.parentElement)
+//        if(e.target.tagName == 'P'){
+//         const parent= e.target.parentElement
+//         parent.remove()
+//        }
+//    })
+</script>
+</html>

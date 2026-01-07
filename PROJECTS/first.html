@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Reset default spacing */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        background-color: #f5f5f5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    h1 {
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    h2 {
+        color: #555;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    /* Common div styling */
+    .divs {
+        width: 120px;
+        height: 120px;
+        border-radius: 8px;
+        cursor: pointer;
+        border: 2px solid #333;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* Hover effect */
+    .divs:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Individual colors */
+    #yellow {
+        background-color: yellow;
+    }
+
+    #red {
+        background-color: red;
+    }
+
+    #black {
+        background-color: black;
+    }
+
+    #grey {
+        background-color: grey;
+    }
+</style>
+  
+</head>
+<body>
+    <h1>First Project</h1>
+    <h2>click on any div to change the color of backGround</h2>
+    <span class="divs" id="yellow"></span>
+    <span class="divs" id="red"></span>
+    <span class="divs" id="black"></span>
+    <span class="divs" id="grey"></span>
+</body>
+<script src="first.js"></script>
+</html>

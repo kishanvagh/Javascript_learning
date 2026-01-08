@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async(setTimeOut and setInterval)</title>
+</head>
+<body>
+     <h1>Chai aur code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setTimeout(function(){
+    //     console.log("kishan vaghasiya")
+    // },3000)  //it will be after 3 sec for one time 
+     
+    // setInterval(function(){
+    //     console.log("kishanVaghaisiya")
+    // },3000)   //it will be called after 3 every sec infinite time
+
+    const changeHeading=function(){
+        document.querySelector("h1").innerHTML=`Hello this is changed after 3 sec.if you do not want to change then you can click stop button.`
+    }
+    const async1=setTimeout(changeHeading,3000)
+
+    document.getElementById("stop").addEventListener('click',(e)=>{
+        clearTimeout(async1)   //to clear the effect of timeOut
+        console.log('stopped')
+    })
+</script>
+</html>

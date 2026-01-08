@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>this page will change its backGround color every sec</h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+</body>
+<script>
+    let Async1;
+    function getRandomColor(){
+        str="0123456789ABCDEF"
+        let color="#"
+        for(let i=1;i<=6;i++){
+            color+=str[Math.floor(Math.random()*16)]
+        }
+        console.log(color)
+        return color
+    }
+    function changeColor(){
+        function helperOfChangeColor(){
+            const randolColor=getRandomColor();
+            document.querySelector('body').style.backgroundColor=randolColor
+        }
+        Async1=setInterval(helperOfChangeColor,1000)
+    }
+    function stopChangeColor(){
+         clearInterval(Async1)
+    }
+    const start=document.getElementById('start')
+    const stop=document.getElementById('stop')
+    start.addEventListener('click',(e)=>{
+        changeColor();
+    })
+    stop.addEventListener('click',(e)=>{
+        stopChangeColor();
+    })
+</script>
+</html>

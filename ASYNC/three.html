@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keyboard Event Viewer</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #1d2671, #c33764);
+        color: #fff;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 700px;
+        padding: 25px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        overflow: hidden;
+        border-radius: 12px;
+    }
+
+    thead {
+        background: rgba(0, 0, 0, 0.3);
+        position: sticky;
+        top: 0;
+    }
+
+    th, td {
+        padding: 14px;
+        text-align: center;
+    }
+
+    th {
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 14px;
+    }
+
+    tbody tr {
+        background: rgba(255, 255, 255, 0.1);
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    tbody tr:nth-child(even) {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    tbody tr:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transition: 0.3s;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(5px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .hint {
+        margin-top: 15px;
+        text-align: center;
+        opacity: 0.8;
+        font-size: 14px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>🎹 Keyboard Event Tracker</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Key</th>
+                <th>KeyCode</th>
+                <th>Code</th>
+            </tr>
+        </thead>
+        <tbody id="insert"></tbody>
+    </table>
+
+    <div class="hint">Press any key to see its details</div>
+</div>
+
+<script>
+    const insert = document.getElementById("insert");
+
+    window.addEventListener("keydown", (e) => {
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${e.key === " " ? "Space" : e.key}</td>
+            <td>${e.keyCode}</td>
+            <td>${e.code}</td>
+        `;
+
+        insert.appendChild(row);
+    });
+</script>
+
+</body>
+</html>

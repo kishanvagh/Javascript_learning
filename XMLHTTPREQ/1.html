@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <!-- this are the different states of request that we created using XMLHTTPREQUEST(xhr) -->
+     <!-- 0	UNSENT	Client has been created. open() not called yet.
+    1	OPENED	open() has been called.
+    2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+    3	LOADING	Downloading; responseText holds partial data.
+    4	DONE	The operation is complete.
+    -->
+</head>
+<body>
+    <button id="displayProfile">displayProfile</button>
+    <div id="container">
+        <img src="" alt="" id="imgDisplay">
+        <div id="info">
+            <b>name</b>:<p id="name"></p>
+            <b>followers</b>:<p id="followers"></p>
+        </div>
+    </div>
+    <script>
+         function display(){
+            const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+            const xhr = new XMLHttpRequest(); //Request is created but not started  (ready state == 0 here)
+            xhr.onreadystatechange = function () {      //this track the changes of readystate of our request
+                console.log("State:", xhr.readyState);   
+                let data;
+                if (xhr.readyState === 4 && xhr.status === 200) {   //readyState == 4 means data is fully comes 
+                    data=xhr.responseText
+                    // console.log(typeof data)  //string
+                    data=JSON.parse(data)   //to covert string data into JSON object
+                    // console.log(typeof data)  //type of data is object now
+                    console.log("Response:", data);
+                    console.log(data["avatar_url"])
+                    document.getElementById("imgDisplay").src=data["avatar_url"]
+                    document.getElementById("name").innerText=data["login"]
+                    document.getElementById("followers").innerText=data["followers"]
+
+                }
+            };    
+            
+            xhr.open("GET", requestUrl);   //Request is configured ,open() has been called,Request method and URL are set,send() is NOT called yet
+            xhr.send();
+         }
+         document.querySelector('#displayProfile').addEventListener('click',()=>{
+            display()
+         })
+
+    </script>
+</body>
+</html>

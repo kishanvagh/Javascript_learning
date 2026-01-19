@@ -1,0 +1,65 @@
+What is fetch()?
+
+fetch() is a modern Web API used to make HTTP requests (GET, POST, PUT, DELETE, etc.).
+
+fetch(url)
+
+It returns a Promise that resolves to a Response object
+
+
+
+Very Important Point (Most people misunderstand)
+
+❗ fetch() does NOT reject the promise on HTTP errors like
+404, 500, 401
+
+It only rejects when:
+
+Network error
+
+DNS failure
+
+CORS error
+
+
+fetch(url).then(response => {
+  console.log(response);
+});
+Response contains:
+Property	Meaning
+response.ok	true if status is 200–299
+response.status	HTTP status code
+response.headers	Response headers
+response.url	URL
+response.body	ReadableStream
+
+
+
+we can send data also with fetch as a json object       
+
+Important:
+
+body must be string
+
+Headers must match body type
+
+fetch(url, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    username: "kishan",
+    password: "123"
+  })
+});
+
+9️⃣ HTTP Methods Summary
+Method	Purpose
+GET	Read data
+POST	Create data
+PUT	Replace data
+PATCH	Update data
+DELETE	Remove data
+
+
